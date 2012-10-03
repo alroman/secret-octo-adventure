@@ -1,4 +1,4 @@
--secret-octo-adventure
-======================
+secret-octo-adventure
+=====================
 
 Project Euler solutions
