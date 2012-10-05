@@ -7,21 +7,24 @@ class Solver:
 
 	@staticmethod
 	def recursive():
-		sum = 0
+		# Store sum 
+		s = 0
 
 		i = 0
 		
+		# Sum all even fibs recursively
 		while True:
 			seq = Solver.fib(i)
 			i += 1
 
+			# Exit condition
 			if(seq > Solver.MAX):
 				break
 
 			if(seq % 2  ==0):
-				sum += seq
+				s += seq
 
-		print sum
+		print s
 
 	@staticmethod
 	def fib(n):
@@ -36,14 +39,38 @@ class Solver:
 
 	@staticmethod
 	def linear():
-		s = 0
-		# for i in range(2, Solver.MAX):
+
+		# Start with saved
+		s = 2
+
+		# save last two fibs
+		storedfib = [1, 2]
+		
+		while True:
+			# Get new fib
+			newfib = storedfib[0] + storedfib[1]
+			
+			# Exit condition
+			if(newfib > Solver.MAX):
+				break
+
+			# Save last two fibs again
+			storedfib[0] = storedfib[1]
+			storedfib[1] = newfib
+
+			if(newfib %2 == 0):
+				s += newfib
+
+		print s
 
 
 
 def main():
 	print "Solve using recursion... prepare to wait"
-	Solver.recursive()
+	# Solver.recursive()
+
+	print "Solve with loop"
+	Solver.linear()
 
 
 if __name__ == "__main__":
