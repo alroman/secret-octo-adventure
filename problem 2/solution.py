@@ -67,7 +67,7 @@ class Solver:
 
 def main():
 	print "Solve using recursion... prepare to wait"
-	# Solver.recursive()
+	Solver.recursive()
 
 	print "Solve with loop"
 	Solver.linear()
